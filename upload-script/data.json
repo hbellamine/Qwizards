@@ -1,0 +1,121 @@
+{
+
+  "quiz" : {
+    "573523278" : { "listequestions" : [ {
+      "answer1" : "Discrets, effacés et modestes",
+      "answer2" : "Confiance absolue, visionnaire",
+      "answer3" : "Dur, sans remise en question",
+      "answer4" : "Son intérêt personnel passe avant l'interêt de l'entreprise",
+      "question" : "Quels sont les principaux caractéristiques des Leaders de niveau 5 ? ",
+      "questionnumber" : 0,
+      "rightanswer" : "1"
+    }, {
+      "answer1" : "Oui",
+      "answer2" : "Non",
+      "question" : "Le pdg doit d'abord dessiner une vision avant de recruter son équipe de direction ? ",
+      "questionnumber" : 1,
+      "rightanswer" : "2"
+    }, {
+      "answer1" : "Recruter les bonnes personnes aux bon postes et construire conjointement une vision sans hésiter à débattre longuement avec l'équipe",
+      "answer2" : "Créer la vision en fonction de l'équipe de direction en place",
+      "answer3" : "Le PDG créé sa vision et fait en sorte que son équipe de direction la suive",
+      "answer4" : "Eviter absolument les débats et créer le consensus autour d'une vision",
+      "question" : "Qu'est ce qu'un PDG est supposé faire pour créer une vision ? ",
+      "questionnumber" : 2,
+      "rightanswer" : "1"
+    }, {
+      "answer1" : "Affronter la réalité, Analyser en se basant sur des chiffres et prendre des décisions pragmatiques",
+      "answer2" : "Se fier à son intuition indépendamment des éléments factuels",
+      "answer3" : "Ecouter son équipe et son intuition ",
+      "question" : "Quelle attitude faut il avoir pour une bonne prise de décision ? ",
+      "questionnumber" : 3,
+      "rightanswer" : "1"
+    }, {
+      "answer1" : "Diversifier ses actions pour multiplier les chances de réussite ",
+      "answer2" : "Se focaliser sur ce qui passionne le plus, où l'entreprise peut prétendre être la meilleure et qui constitue un moteur économique",
+      "question" : "Qu'est ce que le concept du hérisson ? ",
+      "questionnumber" : 4,
+      "rightanswer" : "2"
+    }, {
+      "answer1" : "Définir un cadre et donner l'autonomie au sein de ce cadre",
+      "answer2" : "Laisser la totale liberté à ses équipes",
+      "answer3" : "Disposer d'un PDG autoritaire qui prend toutes les décisions ",
+      "question" : "Qu'est ce que la culture de la discipline ?",
+      "questionnumber" : 5,
+      "rightanswer" : "1"
+    }, {
+      "answer1" : "Oui, il permet de se démarquer des concurents",
+      "answer2" : "Non, le digital est un moyen qui peut accélérer l'atteinte de l'excellence ",
+      "question" : "Le digital est il le facteur le plus important pour atteindre l'excellence ?",
+      "questionnumber" : 6,
+      "rightanswer" : "2"
+    } ] },
+    "579789800" : { "listequestions" : [ {
+      "answer1" : "ABCD",
+      "answer2" : "EFGH",
+      "answer3" : "IJKL",
+      "answer4" : "MNEF",
+      "question" : "Test",
+      "questionnumber" : 0,
+      "rightanswer" : "1"
+    }, {
+      "answer1" : "a",
+      "answer2" : "b",
+      "answer3" : "c",
+      "answer4" : "d",
+      "question" : "xyz",
+      "questionnumber" : 1,
+      "rightanswer" : "2"
+    }, {
+      "answer1" : "ashk",
+      "answer2" : "lkdsm",
+      "answer3" : "lkdsl",
+      "answer4" : "mlds",
+      "question" : "pppp",
+      "questionnumber" : 2,
+      "rightanswer" : "1"
+    }, {
+      "answer1" : "iudsl",
+      "answer2" : "kdjhskj",
+      "answer3" : "dkhsk",
+      "answer4" : "odsok",
+      "question" : "xuys",
+      "questionnumber" : 3,
+      "rightanswer" : "1"
+    } ] },
+    "1598199665-902" : { "listequestions" : [ {
+      "answer1" : "kjds",
+      "answer2" : "lkds",
+      "answer3" : "lkjdsd",
+      "answer4" : "ds",
+      "question" : "a",
+      "questionnumber" : 0,
+      "rightanswer" : "2"
+    }, {
+      "answer1" : "d",
+      "answer2" : "ds",
+      "answer3" : "az",
+      "answer4" : "za",
+      "question" : "d",
+      "questionnumber" : 1,
+      "rightanswer" : "3"
+    }, {
+      "answer1" : "szaz",
+      "answer2" : "sd",
+      "answer3" : "cs",
+      "answer4" : "ds",
+      "question" : "zaza",
+      "questionnumber" : 2,
+      "rightanswer" : "3"
+    }, {
+      "answer1" : "ds",
+      "answer2" : "ds",
+      "answer3" : "ds",
+      "answer4" : "ds",
+      "question" : "ae",
+      "questionnumber" : 3,
+      "rightanswer" : "2"
+    } ]}
+  }
+}
+
