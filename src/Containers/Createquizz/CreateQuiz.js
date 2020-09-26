@@ -28,7 +28,6 @@ const [ChangedBook,setChangedBook]=useState(0)
 
                 }
                          
-                //console.log(props.location)                           
         }
     },[ChangedBook]);
    

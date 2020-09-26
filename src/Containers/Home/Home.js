@@ -43,7 +43,8 @@ const Home = props => {
 
 
     
-    const bannertext = (<div><h1>Make the  <strong>Best</strong> from <strong>your readings</strong>!</h1></div>)
+    const bannertext = (<div><h1>
+        Get the <strong>most </strong><strong>out of your reading!</strong></h1></div>)
         
     return(
         

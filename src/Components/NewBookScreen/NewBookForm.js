@@ -36,7 +36,6 @@ const NewBookForm = props => {
       const db = firebase.firestore()
       db.collection("bookslist").doc(id).set(post)
         SetPost(post)
-      console.log(props)
       setUploaded(false)
   
 

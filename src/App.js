@@ -9,6 +9,7 @@ import TakeQuiz from './Containers/TakeQuiz/TakeQuiz'
 import { AuthProvider } from './Auth';
 import PrivateRoute from './PrivateRoute'
 import Login from './Containers/Login/Login'
+import ValidateQuiz from './Containers/QuizValidation/ValidateQuiz'
 import SignUp from './SignUp'
 import AdminPanel from './Containers/AdminPanel/AdminPanel'
 
@@ -24,6 +25,7 @@ const App = props => {
         <Route path="/Signup" exact component = {SignUp} />
         <PrivateRoute path="/createquiz" exact component = {CreateQuiz} />
         <PrivateRoute path="/takequiz" exact component = {TakeQuiz} />
+        <PrivateRoute path="/validatequiz" exact component = {ValidateQuiz} />
         <PrivateRoute path="/newbookform" exact component = {NewBook} />
       </div>
       </Router>

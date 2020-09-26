@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
@@ -12,6 +12,7 @@ import axios from 'axios'
 import Alert from '@material-ui/lab/Alert';
 import firebase from "../../base"
 import {withRouter,Redirect} from "react-router";
+import {AuthContext} from "../../Auth"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -69,6 +70,9 @@ const classes = useStyles();
   const [QuizzUploaded,setQuizUploaded]=useState(false)
 
 
+  const {currentUser} = useContext(AuthContext);
+
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -88,7 +92,7 @@ const classes = useStyles();
 
 
     const db = firebase.firestore()
-    db.collection("quiz").doc(props.id).set({"listequestions":[...questions,{
+    db.collection("quiztovalidate").doc(props.id).set({"listequestions":[...questions,{
         questionnumber : value,
         question: question,
         answer1: answer1,
@@ -96,7 +100,10 @@ const classes = useStyles();
         answer3:answer3,
         answer4:answer4,
         rightanswer:rightanswer
-      }]})
+      }],
+    "UserId":currentUser.uid})
+
+ 
 
       setQuizUploaded(true)
       

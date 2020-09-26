@@ -92,6 +92,20 @@ today = dd + '/' + mm + '/' + yyyy;
             </Card.ImgOverlay>
             
             </Card>
+
+            <Card className="bg-white text-black">
+            <Card.Img className="imgcertif" src="https://firebasestorage.googleapis.com/v0/b/qwizards-5b134.appspot.com/o/Certif.png?alt=media&token=52d8ae8a-4a7d-42e3-b426-80c89ad421f2" alt="Card image" />
+                <Card.ImgOverlay>
+                    <div className="lastfirst">
+                    <Card.Title className="certif">{capitalize(FirstName)} </Card.Title>
+                    <Card.Title className="certif">{capitalize(LastName)} </Card.Title>
+                    </div>
+             <div style = {{maxWidth:'150px'}}>
+                    <Card.Title className="title">{props.Book.Title} by </Card.Title>
+                    <Card.Title className="author">{props.Book.author} </Card.Title>
+             </div>
+                </Card.ImgOverlay>
+            </Card>
             
 
             {nowrong && <h1 style={{textAlign:"center"}}>Wrong Answers : </h1> }
@@ -119,18 +133,7 @@ today = dd + '/' + mm + '/' + yyyy;
             
             
 
-            <Card className="bg-white text-black">
-            <Card.Img className="imgcertif" src="https://firebasestorage.googleapis.com/v0/b/qwizards-5b134.appspot.com/o/Certif.png?alt=media&token=52d8ae8a-4a7d-42e3-b426-80c89ad421f2" alt="Card image" />
-                <Card.ImgOverlay>
-                    <div className="lastfirst">
-                    <Card.Title className="certif">{capitalize(FirstName)} </Card.Title>
-                    <Card.Title className="certif">{capitalize(LastName)} </Card.Title>
-                    </div>
 
-                    <Card.Title className="title">{props.Book.Title} by </Card.Title>
-                    <Card.Title className="author">{props.Book.author} </Card.Title>
-                </Card.ImgOverlay>
-            </Card>
             {/* <CommentBox /> */}
          </div>
     )}

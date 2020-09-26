@@ -70,6 +70,8 @@ const  SignUp = ( {history}) =>  {
                   db.collection('users').doc(userCredential.user.uid).collection("firstlast").doc("firstlast").set({
                     "LastName":lastName.value,
                     "FirstName": firstName.value})
+                    db.collection('users').doc(userCredential.user.uid).collection("admin").doc("accesstype").set({
+                        "admin":false})  
 
                 })
 
