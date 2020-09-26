@@ -17,7 +17,7 @@ const [ChangedBook,setChangedBook]=useState(0)
             const bookid = param[0]
             if (props.location.state.books) 
                 { const book = props.location.state.books.filter(elem=>
-                         (elem.id == bookid))
+                         (elem.id === bookid))
                          setBook(book[0])
                          setChangedBook(1)
                 }

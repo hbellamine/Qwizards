@@ -1,4 +1,4 @@
-import React,{useState,Component,Fragment} from 'react'
+import React,{useState,Fragment} from 'react'
 import {Helmet} from 'react-helmet';
 import './Css/TakeQuizComponent.scss'
 import FinalResult from './FinalResult'
@@ -12,9 +12,6 @@ const TakeQuizComponent = props => {
     const [WrongUserAnswers,SetWrongUserAnswers]=useState([])
 
 
-    const IncreaCount = () => {
-        SetCounter(Counter+1)
-    }
 
     const numberofquestions = props.quiz.length
     const onClickHandle = (event) => {

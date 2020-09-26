@@ -1,5 +1,4 @@
-import React, {useEffect,useState} from 'react'
-import firebase from '../../../src/base'
+import React from 'react'
 import ToValidateCard from './ToValidateCard'
 
 
@@ -9,7 +8,7 @@ const SuperAdmin = (props) => {
         <div className="Container" style={{display:"flex", justifyContent:'space-between'}} >
         { props.Idquizzes.map((Id,i)=>{
             return <ToValidateCard key = {i} Id={Id} Quizzes = {props.Quizzes} Books= {props.Books} Book={props.Books.filter(elem=>
-                (elem.id == Id))} />
+                (elem.id === Id))} />
             })
         }
     </div>

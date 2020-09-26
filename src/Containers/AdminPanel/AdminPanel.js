@@ -10,11 +10,6 @@ import SuperAdmin from "../../Components/AdminPanel/SuperAdmin"
 import {Spinner,Button} from 'react-bootstrap'
 
 import {
-    DesktopOutlined,
-    PieChartOutlined,
-    FileOutlined,
-    TeamOutlined,
-    UserOutlined,
     BookOutlined,
     QuestionCircleOutlined,
     CheckOutlined,
@@ -23,7 +18,6 @@ import {
 } from '@ant-design/icons';
 
 const { Header, Content,  Sider } = Layout;
-const { SubMenu } = Menu;
 
 const AdminPanel = (props) =>  {
 

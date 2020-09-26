@@ -8,8 +8,6 @@ import Box from '@material-ui/core/Box';
 import Paragraph from '../../Components/QuizComponents/ParagraphField'
 import Button from '@material-ui/core/Button';
 import SummaryModal from '../../Components/CreateQuizzScreen/Modal'
-import axios from 'axios'
-import Alert from '@material-ui/lab/Alert';
 import firebase from "../../base"
 import {withRouter,Redirect} from "react-router";
 import {AuthContext} from "../../Auth"
