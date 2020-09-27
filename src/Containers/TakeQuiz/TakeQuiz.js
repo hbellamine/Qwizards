@@ -1,16 +1,13 @@
-import React,{useState, useEffect,useContext} from 'react';
-import Layout from '../../Components/CreateQuizzScreen/Layout'
+import React,{useState, useEffect} from 'react';
 import Banner from '../../Components/CreateQuizzScreen/Banner/Banner'
 import NavBar from '../../Components/HomeScreen/NavBar/NavBar'
 import TakeQuizComponent from '../../Components/TakeQuizScreen/TakeQuizComponent'
 import firebase from '../../base'
-import {AuthContext} from "../../Auth"
 
 
 
 const TakeQuiz = props => {
 
-const [ChangedBook,setChangedBook]=useState(0)
  const [Book,setBook]=useState({})
  const [BookId, setBookId] = useState()
  const [SelectedQuiz,setSelectedQuiz]= useState()
@@ -22,7 +19,7 @@ const [ChangedBook,setChangedBook]=useState(0)
         for (let param of query.entries()){
             const bookid = param[0]
             const book = props.location.state.books.filter(elem=>
-                         (elem.id == bookid))
+                         (elem.id === bookid))
                          setBook(book[0])
                          setBookId(bookid)
 
@@ -38,15 +35,6 @@ const [ChangedBook,setChangedBook]=useState(0)
 
     },[]);
 
-    const quiz = ()=>{
-        if (props.location.state.quizz !== undefined) {
-            return(props.location.state.quizz)}
-             else {
-                return("")
-            }
-        }
-        
-        const {currentUser} = useContext(AuthContext);
 
     
 

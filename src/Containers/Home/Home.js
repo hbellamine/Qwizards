@@ -1,10 +1,8 @@
 import React,{useState,useEffect} from 'react';
-import Slides from '../../Components/HomeScreen/Caroussel'
 import {withRouter} from 'react-router-dom'
 import './Container.css';
 import NavBar from '../../Components/HomeScreen/NavBar/NavBar';
 import Searchbar from '../../Components/HomeScreen/Searchbar/Searchbar';
-import books from '../../Data/Data'
 import ShowList from '../../Components/HomeScreen/ShowList'
 import Banner from '../../Components/CreateQuizzScreen/Banner/Banner'
 import firebase from '../../../src/base'

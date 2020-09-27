@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Form,FormControl } from 'react-bootstrap';
+import {Form } from 'react-bootstrap';
 import Button from '@material-ui/core/Button';
 import './CommentBox.scss'
 const CommentBox =(props) => {

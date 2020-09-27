@@ -23,7 +23,7 @@ const TakeQuizComponent = props => {
          
             SetPoints(Points+1)
             SetCounter(Counter+1)
-            if (Counter == numberofquestions-1) {
+            if (Counter === numberofquestions-1) {
                 SetLast(false)
             }
 
@@ -31,7 +31,7 @@ const TakeQuizComponent = props => {
             SetCounter(Counter+1)
             SetWrongAnswers([...WrongAnswers,props.quiz[Counter]])
             SetWrongUserAnswers([...WrongUserAnswers,event.target.textContent])
-            if (Counter == numberofquestions-1) {
+            if (Counter === numberofquestions-1) {
                 SetLast(false)
             }
 

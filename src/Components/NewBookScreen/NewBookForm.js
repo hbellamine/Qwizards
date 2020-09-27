@@ -1,9 +1,8 @@
 import React,{useState} from 'react';
-import {Form,FormControl } from 'react-bootstrap';
+import {Form } from 'react-bootstrap';
 import {withRouter} from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import './ContainerNewBookForm.css'
-import axios from 'axios';
 import firebase from '../../base'
 
 
@@ -12,7 +11,6 @@ const NewBookForm = props => {
     const [CoverImg,setCoverImg] = useState("")
     const [Title,setTitle] = useState("")
     const [Summary,setSummary] = useState("")
-    const [QuizzAvailable,setQuizzAvailable]=useState(false)
     const [Author,setAuthor]= useState("")
     const [Uploaded, setUploaded]=useState(true)
     const [Post,SetPost] = useState()
@@ -27,7 +25,7 @@ const NewBookForm = props => {
             author: Author,
             Title: Title,
             summary: Summary,
-            quizzavailable: QuizzAvailable,
+            quizzavailable: false,
         }
 
 

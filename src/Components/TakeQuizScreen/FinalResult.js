@@ -2,8 +2,6 @@ import React,{useContext,useState,useEffect} from 'react'
 import Card from 'react-bootstrap/Card'
 import firebase from '../../base'
 import {AuthContext} from "../../Auth";
-import {Certif} from "../../Containers/CertifCont/Certif.png"
-import CommentBox from "../CommentBox/CommentBox"
 import './Css/TakeQuizComponent.scss'
 import {Button} from 'react-bootstrap'
 
