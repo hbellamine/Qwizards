@@ -62,7 +62,7 @@ const AdminPanel = (props) =>  {
     fetchData()
   
     
-},[])
+},[currentUser.uid])
 
 
 

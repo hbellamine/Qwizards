@@ -33,7 +33,7 @@ const TakeQuiz = props => {
         fetchData()
     }
 
-    },[]);
+    },[props.location.search,props.location.state.books]);
 
 
     

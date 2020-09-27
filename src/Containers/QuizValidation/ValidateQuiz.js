@@ -36,7 +36,7 @@ const TakeQuiz = props => {
             fetchData()
         }
 
-    }, []);
+    }, [props.location.state.books,props.location.search]);
 
     const handlesubmit = () => {
         const db = firebase.firestore()

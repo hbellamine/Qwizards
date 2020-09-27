@@ -29,7 +29,7 @@ const [ChangedBook,setChangedBook]=useState(0)
                 }
                          
         }
-    },[ChangedBook]);
+    },[props.location.state.book,props.location.state.books,props.location.search,ChangedBook]);
    
 return (
     <div>
