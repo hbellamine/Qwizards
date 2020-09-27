@@ -70,8 +70,12 @@ const Login = ({history}) => {
         await firebase
         .auth()
             .signInWithEmailAndPassword(email.value,password.value);
-        //history.push("/") ;
-        history.push(history.location.state.from.pathname)
+        
+        if (history.location.state.from.pathname === "/adminpanel") {
+          history.push(history.location.state.from.pathname) }
+          else {
+            history.push("/")
+          }
     }
     catch(error){
         alert(error);
