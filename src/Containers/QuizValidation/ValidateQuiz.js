@@ -42,7 +42,7 @@ const TakeQuiz = props => {
         const db = firebase.firestore()
                 db.collection("quiz").doc(BookId).set(QuizSelected.data())
                 db.collection("quiztovalidate").doc(BookId).delete()
-                const UserId = db.collection("quiztovalidate").doc(BookId).collection("UserId")
+                const UserId = db.collection("quiztovalidate").doc(BookId).collection("UserId").get()
                 const userRef = db.collection("users").doc(UserId).collection("points").doc('quizpoints')
                 const increaseBy = firebase.firestore.FieldValue.increment(50);
           
