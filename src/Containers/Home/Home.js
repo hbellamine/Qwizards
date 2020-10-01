@@ -1,45 +1,30 @@
 import React,{useState,useEffect} from 'react';
 import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
+import * as BooksActions from '../../store/actions/books'
 import './Container.css';
 import NavBar from '../../Components/HomeScreen/NavBar/NavBar';
 import Searchbar from '../../Components/HomeScreen/Searchbar/Searchbar';
 import ShowList from '../../Components/HomeScreen/ShowList'
 import Banner from '../../Components/CreateQuizzScreen/Banner/Banner'
-import firebase from '../../../src/base'
 
 
 
 
 const Home = props => {
 
-    const [Bookslist,setBookslist]=useState(false)
-    const [AllBooksList,setAllBooksList] = useState("")
     
-    const [Idquizzes,setIdquizzes]=useState("")
-    const [Quizzes,setQuizzes]=useState("")
- 
+
     useEffect(()=> {
-        const fetchData = async () => {
-            const db = firebase.firestore()
-            const bookslisting= await db.collection("bookslist").get()
-            setBookslist(Object.values((bookslisting.docs.map(doc => doc.data()))))
-            setAllBooksList(Object.values((bookslisting.docs.map(doc => doc.data()))))
+        if(props.Fetchedok === false ) {
+            props.onFetchBooks(); }
 
-            const quizlisting= await db.collection("quiz").get()
-            setIdquizzes((quizlisting.docs.map(doc => doc.id)))
-            setQuizzes(quizlisting.docs.map(doc => doc.data()))
-            
-        } 
-        
-        fetchData()
-      
-        
-    },[])
+            props.onNewRender(props.AllBooks)
+
+              
+    },[props.Fetchedok])
 
     
-
-
-
     
     const bannertext = (<div><h1>
         Get the <strong>most </strong><strong>out of your reading!</strong></h1></div>)
@@ -49,16 +34,35 @@ const Home = props => {
         <div>
                 <NavBar /> 
                 <Banner title={bannertext}/>
-            {AllBooksList && <Searchbar setBookslist={setBookslist} books={AllBooksList}/> }
-            {Bookslist && Idquizzes && Quizzes && <ShowList Quizzes= {Quizzes} Idquizzes={Idquizzes} AllBooks = {Bookslist} List={Bookslist.slice(0,50)} />}
+            {props.AllBooks && <Searchbar books={props.AllBooks}/> }
+            {props.FilteredBooks && props.IdQuizzes && props.Quizzes  && <ShowList Quizzes= {props.Quizzes} Idquizzes={props.IdQuizzes} AllBooks = {props.FilteredBooks} List={props.FilteredBooks.slice(0,50)} />}
                         
         </div>
    
     )}
 
+    const mapStateToProps = state => {
+        return {
+            AllBooks : state.AllBooks,
+            FilteredBooks : state.FilteredBooks,
+            Quizzes : state.Quizzes,
+            IdQuizzes: state.IdQuizzes,
+            Fetchedok: state.Fetchedok
+
+
+        }
+    }
 
 
 
-export default withRouter(Home); 
+const mapDispatchToProps = dispatch => {
+    return {
+        onFetchBooks: () => dispatch(BooksActions.FetchBooks()),
+        onNewRender: (filteredBook) => dispatch(BooksActions.FilteredBooks(filteredBook))
+
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Home)); 
 
 

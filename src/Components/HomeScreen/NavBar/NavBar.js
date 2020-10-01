@@ -14,23 +14,28 @@ const NavBar = props => {
         props.history.push(
             {
              pathname: '/newbookform',
-          
-       
             }
           )
-            
-           
+    }
+
+    const home =()=>{
+
+        props.history.push(
+            {
+             pathname: '/',
+            }
+          )
     }
 
     return(
 
         <div className="Navbar">
                 <Navbar bg="light" expand="lg">
-                                    <Navbar.Brand href="/">Qwizards</Navbar.Brand>
+                                    <Navbar.Brand onClick={home}>Qwizards</Navbar.Brand>
                                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                                     <Navbar.Collapse id="basic-navbar-nav">
                                     <Nav className="mr-auto">
-                                        <Nav.Link href="/">Home</Nav.Link>
+                                        <Nav.Link onClick={home}>Home</Nav.Link>
                                         <Nav.Link href="/adminpanel">My Dashboard</Nav.Link>
                                         {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                                         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

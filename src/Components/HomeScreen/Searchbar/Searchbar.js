@@ -3,7 +3,8 @@ import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import './Searchbar.css'
-
+import {connect} from 'react-redux'
+import * as BooksActions from '../../../store/actions/books'
 
 
 const Searchbar = props => { 
@@ -24,7 +25,7 @@ const Searchbar = props => {
         
           let listedbooks = (props.books.filter(book=>
             (book.Title.toLowerCase().includes(event.target.value.toLowerCase()) )))
-            props.setBookslist(listedbooks)
+            props.onFilteredBook(listedbooks)
           };
          
       
@@ -46,6 +47,18 @@ const Searchbar = props => {
  )
 }
 
-export default Searchbar; 
+const mapStateToProps = state => {
+  return {
+    FilteredBooks : state.FilteredBooks
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+return {
+  onFilteredBook: (filteredBook) => dispatch(BooksActions.FilteredBooks(filteredBook))
+}
+}
+
+export default connect(mapStateToProps,mapDispatchToProps) (Searchbar); 
 
 

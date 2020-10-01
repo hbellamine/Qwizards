@@ -1,0 +1,5 @@
+export const SET_BOOKS = 'SET_BOOKS'
+export const SET_QUIZZES = 'SET_QUIZZES'
+export const FILTERED_BOOKS = 'FILTERED_BOOKS'
+export const SET_IDQUIZZES = 'SET_IDQUIZZES'
+export const SET_FETCHOK = 'SET_FETCHOK'
