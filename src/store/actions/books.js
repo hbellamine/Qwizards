@@ -1,6 +1,7 @@
 import * as actionTypes from './actionTypes'
 import firebase from '../../../src/base'
 
+
 export const FilteredBooks = (filteredBook) => {
     return {
         type: actionTypes.FILTERED_BOOKS,
@@ -38,7 +39,6 @@ export const setQuizzes = (quizzes)=> {
 export const FetchBooks = () => {
    
     return async dispatch => {
-        console.log('test')
         const db = firebase.firestore()
         const bookslisting=  await db.collection("bookslist").get()        
         dispatch(setBooks(bookslisting))
@@ -47,6 +47,80 @@ export const FetchBooks = () => {
         dispatch(setIdquizzes((quizlisting.docs.map(doc => doc.id))))
         dispatch(setQuizzes(quizlisting.docs.map(doc => doc.data())))
         dispatch(FetchedOk())
+    }
+
+}
+
+
+export const FetchisAdmin = (currentUser) => {
+    return async dispatch => {
+        const db = firebase.firestore()
+        const ifadmin= await db.collection("users").doc(currentUser.uid).collection("admin").doc("accesstype").get()
+        dispatch(isAdmin(ifadmin.data()["admin"]))
+
+    }
+}
+export const isAdmin = (ifadmin) => {
+    return {
+        type: actionTypes.SET_ISADMIN,
+        isAdmin : ifadmin
+    }
+
+}
+
+export const FetchPoints = (currentUser) => {
+    return async dispatch => {
+        const db = firebase.firestore()
+        const Pts= await db.collection("users").doc(currentUser.uid).collection("points").doc("quizpoints").get()
+        dispatch(Points(Pts.data()["QuizPoints"]))
+
+    }
+}
+export const Points = (Pts) => {
+    return {
+        type: actionTypes.SET_POINTS,
+        Points : Pts
+    }
+
+}
+
+export const FetchFirstLast = (currentUser) => {
+    return async dispatch => {
+        const db = firebase.firestore()
+        const firstlast= await db.collection("users").doc(currentUser.uid).collection("firstlast").doc("firstlast").get()
+        dispatch(FirstLast(firstlast.data()["FirstName"]))
+
+    }
+}
+export const FirstLast = (firstlast) => {
+    return {
+        type: actionTypes.SET_FIRSTLAST,
+        FirstLast : firstlast
+    }
+
+}
+
+
+export const FetchQuizListing = () => {
+    return async dispatch => {
+        const db = firebase.firestore()
+        const quizlisting= await db.collection("quiztovalidate").get()
+        dispatch(QuizListing(quizlisting.docs.map(doc => doc.data())))
+        dispatch(IdQuizz(quizlisting.docs.map(doc => doc.id)))
+    }
+}
+export const QuizListing = (quizlisting) => {
+    return {
+        type: actionTypes.SET_QUIZTOVALIDATE,
+        QuizzToValidate : quizlisting
+    }
+
+}
+
+export const IdQuizz = (idQuizz) => {
+    return {
+        type: actionTypes.SET_IDQUIZTOVALIDATE,
+        IdQuizzToValidate : idQuizz
     }
 
 }

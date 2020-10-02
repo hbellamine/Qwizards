@@ -8,6 +8,8 @@ import firebase from "../../base";
 import {AuthContext} from "../../Auth"
 import SuperAdmin from "../../Components/AdminPanel/SuperAdmin"
 import {Spinner,Button} from 'react-bootstrap'
+import {connect} from 'react-redux'
+import * as BooksActions from '../../store/actions/books'
 
 import {
     BookOutlined,
@@ -21,15 +23,9 @@ const { Header, Content,  Sider } = Layout;
 
 const AdminPanel = (props) =>  {
 
-  const [collapsed,SetCollapsed]= useState(true)
-  const [Points, SetPoints]= useState()
-  const [FirstName,SetFirstName]= useState()
-  const [Admin,SetAdmin] = useState(false)
-  const [AllBooksList,setAllBooksList] = useState()
-  const [Idquizzes, setIdquizzes] = useState("0")
-  const [Quizzes,setQuizzes] = useState()
-  const [pending, setPending] = useState(true)
 
+  const [pending, setPending] = useState(true)
+  const [collapsed,SetCollapsed]= useState(true)
 
 
   const onCollapse = collapsed => {
@@ -42,30 +38,20 @@ const AdminPanel = (props) =>  {
 
    
   useEffect(()=> {
-    const fetchData = async () => {
-        const db = firebase.firestore()
-        const isAdmin= await db.collection("users").doc(currentUser.uid).collection("admin").doc("accesstype").get()
-        const Pts= await db.collection("users").doc(currentUser.uid).collection("points").doc("quizpoints").get()
-        const firstlast= await db.collection("users").doc(currentUser.uid).collection("firstlast").doc("firstlast").get()
-        const quizlisting= await db.collection("quiztovalidate").get()
-        const bookslisting= await db.collection("bookslist").get()
-        setAllBooksList(Object.values((bookslisting.docs.map(doc => doc.data()))))
-        setIdquizzes((quizlisting.docs.map(doc => doc.id)))
-        setQuizzes(quizlisting.docs.map(doc => doc.data()))
-        SetFirstName(firstlast.data()["FirstName"])
-        SetAdmin(isAdmin.data()["admin"])
-        SetPoints(Pts.data()["QuizPoints"])
+
+    props.onFetchisAdmin(currentUser)
+    props.onFetchPoints(currentUser) 
+    props.onFetchFirstLast(currentUser) 
+    props.onFetchQuizListing() 
         setPending(false)
         
-    } 
-    
-    fetchData()
+
   
     
-},[currentUser.uid])
+},[])
 
 
-
+console.log(props.IdQuizzToValidate)
 
 if (pending) {
   return (
@@ -87,7 +73,7 @@ if (pending) {
 )
 }
 
-if(!Admin) {
+if(!props.isAdmin) {
     return (
     <div>
      <NavBar />
@@ -117,12 +103,12 @@ if(!Admin) {
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>{FirstName}</Breadcrumb.Item>
+              <Breadcrumb.Item>{props.FirstName}</Breadcrumb.Item>
             </Breadcrumb>
-            <h2>Hello {FirstName}</h2>
+            <h2>Hello {props.FirstName}</h2>
             <div className="site-layout-background" style={{ padding: 24, minHeight: 200, justifyContent:"space-between", flexWrap: "wrap" , display:'flex' }}>
               
-               <Cards title = "Quizes Points"  content1 = {Points} />
+               <Cards title = "Quizes Points"  content1 = {props.Points} />
                
             </div>
           </Content>
@@ -163,12 +149,12 @@ if(!Admin) {
            <Content style={{ margin: '0 16px' }}>
              <Breadcrumb style={{ margin: '16px 0' }}>
                <Breadcrumb.Item>User</Breadcrumb.Item>
-               <Breadcrumb.Item>{FirstName}</Breadcrumb.Item>
+               <Breadcrumb.Item>{props.FirstName}</Breadcrumb.Item>
              </Breadcrumb>
-             <h2>Hello {FirstName}</h2>
+             <h2>Hello {props.FirstName}</h2>
              <div className="site-layout-background" style={{ padding: 24, minHeight: 200, justifyContent:"space-between", flexWrap: "wrap" , display:'flex' }}>
                
-             <SuperAdmin Idquizzes = {Idquizzes} Quizzes = {Quizzes} Books = {AllBooksList}/>
+             <SuperAdmin Idquizzes = {props.IdQuizzToValidate} Quizzes = {props.QuizToValidate} Books = {props.AllBooks}/>
                 
              </div>
            </Content>
@@ -183,6 +169,31 @@ if(!Admin) {
   }
 }
 
-//  ReactDOM.render(<SiderDemo />, mountNode);
+const mapStateToProps = state => {
+  return {
+    AllBooks: state.AllBooks,
+    isAdmin : state.isAdmin,
+    Points : state.Points,
+    FirstName : state.FirstName,
+    QuizToValidate: state.QuizToValidate,
+    IdQuizzToValidate: state.IdQuizzToValidate
 
-export default AdminPanel
+
+  }
+}
+
+
+
+const mapDispatchToProps = dispatch => {
+return {
+  onFetchBooks: () => dispatch(BooksActions.FetchBooks()),
+  onFetchisAdmin: (currentUser) => dispatch(BooksActions.FetchisAdmin(currentUser)),
+  onFetchPoints: (currentUser) => dispatch(BooksActions.FetchPoints(currentUser)),
+  onFetchFirstLast: (currentUser) => dispatch(BooksActions.FetchFirstLast(currentUser)),
+  onFetchQuizListing: () => dispatch(BooksActions.FetchQuizListing()),
+  
+
+}
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(AdminPanel)

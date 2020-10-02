@@ -7,7 +7,14 @@ const initialState = {
     FilteredBooks : null,
     Quizzes : null,
     IdQuizzes : null,
-    Fetchedok:false
+    Fetchedok:false,
+    isAdmin : false,
+    Points : null,
+    FirstName: null, 
+    QuizToValidate : null,
+    IdQuizzToValidate: [],
+
+
 
 }
 
@@ -48,6 +55,37 @@ const reducer = (state = initialState, action) => {
              Fetchedok : action.fetchedok
 
          }
+
+         case actionsTypes.SET_ISADMIN: 
+         return {
+             ...state,
+             isAdmin: action.isAdmin
+         }
+
+         case actionsTypes.SET_POINTS: 
+         return {
+             ...state,
+             Points: action.Points
+         }
+
+         case actionsTypes.SET_FIRSTLAST: 
+         return {
+             ...state,
+             FirstName: action.FirstLast
+         }
+
+         case actionsTypes.SET_QUIZTOVALIDATE: 
+         return {
+             ...state,
+             QuizToValidate: action.QuizzToValidate
+         }
+
+         case actionsTypes.SET_IDQUIZTOVALIDATE: 
+         return {
+             ...state,
+             IdQuizzToValidate: action.IdQuizzToValidate
+         }
+
          default : 
          return state; 
      }
