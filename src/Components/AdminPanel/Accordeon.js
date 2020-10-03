@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import "./Accordeon.css"
 import CertifAdmin from './CertifAdmin'
+import {CloseSquareOutlined , CheckCircleTwoTone } from '@ant-design/icons';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +34,7 @@ const Accordeon = (props) =>  {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >   
+              <CheckCircleTwoTone twoToneColor="#52c41a" />
               <div className= "accordeon">
                   <img width="150px" height="auto" src ={props.cover} />
               <Typography className={classes.heading}><strong>Date :</strong> {props.date} <br /> <strong>Book Title : </strong>{props.title} </Typography>
@@ -60,7 +63,8 @@ const Accordeon = (props) =>  {
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"
         id="panel1a-header"
-      >   
+      >
+        <CloseSquareOutlined color="red" />   
         <div className= "accordeon">
             <img width="150px" height="auto" src ={props.cover} />
         <Typography className={classes.heading}><strong>Date :</strong> {props.date} <br /> <strong>Book Title : </strong>{props.title} </Typography>
