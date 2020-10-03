@@ -34,7 +34,7 @@ const Accordeon = (props) =>  {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >   
-              <CheckCircleTwoTone twoToneColor="#52c41a" />
+              <CheckCircleTwoTone size="12px" twoToneColor="#52c41a" />
               <div className= "accordeon">
                   <img width="150px" height="auto" src ={props.cover} />
               <Typography className={classes.heading}><strong>Date :</strong> {props.date} <br /> <strong>Book Title : </strong>{props.title} </Typography>

@@ -5,7 +5,7 @@ import {AuthContext} from "../../Auth";
 import './Css/TakeQuizComponent.scss'
 import {Button} from 'react-bootstrap'
 import Certif from '../../Containers/CertifCont/Certif'
-
+import {withRouter} from 'react-router-dom'
 
 const FinalResult = props => {
 
@@ -49,6 +49,16 @@ today = dd + '/' + mm + '/' + yyyy;
     }
 
 
+    const adminpanel =()=>{
+
+        props.history.push(
+            {
+             pathname: '/adminpanel',
+            }
+          )
+    }
+
+
     db.collection("users").doc(currentUser.uid).collection("quizes").doc(props.Book.id).set({
         booktitle : props.Book.Title,
         Result: props.Result,
@@ -82,7 +92,7 @@ today = dd + '/' + mm + '/' + yyyy;
                 <Card.Title className="successtxt">
                     <div style={{fontFamily:"Jonathan", textAlign:"center", fontSize:"400%", fontWeight:'Bold'}}>Well done !</div> 
                     <div style={{textAlign:"center"}}>You just added 50 points to your total quiz points</div>
-                    <div className="checkbutton"><Button variant="primary"  href="/adminpanel">Check my Dashboard</Button></div>
+                    <div className="checkbutton"><Button variant="primary"  onClick={adminpanel}>Check my Dashboard</Button></div>
                 </Card.Title>
             <Card.Text style= {{textAlign:"center",fontWeight:"Bold"}}>
                 {Math.round(props.Result)} % of your answers are correct
@@ -139,7 +149,7 @@ today = dd + '/' + mm + '/' + yyyy;
                         <Card.Title className="successtxt">
                             <div style={{fontFamily:"Arial", textAlign:"center", fontSize:"400%", fontWeight:'Bold'}}>Sorry !</div> 
                             <div style={{textAlign:"center"}}>0 points added to your total quiz points</div>
-                            <div className="checkbutton"><Button variant="primary"  href="/adminpanel">Check my Dashboard</Button></div>
+                            <div className="checkbutton"><Button variant="primary"  onClick={adminpanel}>Check my Dashboard</Button></div>
                         </Card.Title>
                     <Card.Text style= {{textAlign:"center",fontWeight:"Bold"}}>
                         {Math.round(props.Result)} % 
@@ -177,4 +187,4 @@ today = dd + '/' + mm + '/' + yyyy;
     }
 }
 
-export default FinalResult
+export default withRouter(FinalResult)
