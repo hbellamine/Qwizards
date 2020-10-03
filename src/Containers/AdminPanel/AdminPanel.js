@@ -4,6 +4,7 @@ import './adminpanel.css'
 import 'antd/dist/antd.css';
 import NavBar from '../../Components/HomeScreen/NavBar/NavBar';
 import Cards from '../../Components/AdminPanel/Cards'
+import Accordeon from '../../Components/AdminPanel/Accordeon'
 import firebase from "../../base";
 import {AuthContext} from "../../Auth"
 import SuperAdmin from "../../Components/AdminPanel/SuperAdmin"
@@ -42,6 +43,7 @@ const AdminPanel = (props) =>  {
     props.onFetchisAdmin(currentUser)
     props.onFetchPoints(currentUser) 
     props.onFetchFirstLast(currentUser) 
+    props.onFetchOkQuiz(currentUser)
     props.onFetchQuizListing() 
         setPending(false)
         
@@ -51,7 +53,7 @@ const AdminPanel = (props) =>  {
 },[])
 
 
-console.log(props.IdQuizzToValidate)
+
 
 if (pending) {
   return (
@@ -82,17 +84,9 @@ if(!props.isAdmin) {
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="1" icon={<BookOutlined />}>
-              My Added Books
+              
             </Menu.Item>
-            <Menu.Item key="2" icon={<QuestionCircleOutlined />}>
-              My Uploaded Quizes
-            </Menu.Item>
-            <Menu.Item key="3" icon={<CheckOutlined />}>
-              Quizes passed
-            </Menu.Item>
-            <Menu.Item key="4" icon={<StopOutlined />}>
-              Quizes failed
-            </Menu.Item>
+            
            
             
             
@@ -110,6 +104,22 @@ if(!props.isAdmin) {
               
                <Cards title = "Quizes Points"  content1 = {props.Points} />
                
+          { props.OkQuiz.map((item,i)=>{
+            const book = props.AllBooks.filter(elem=>
+              (elem.id === item.BookId))
+              console.log(book[0]["src"])
+            return <Accordeon key = {i} 
+                              title={item.booktitle} 
+                              date={item.QuizDate} 
+                              BookTitle={item.Title} 
+                              result={item.Result} 
+                              Success={item.Success} 
+                              firstlast = {props.FirstName} 
+                              lastname= {props.LastName}
+                              author = {book[0]["author"]}
+                              cover = {book[0]["src"]} />
+            })
+          }
             </div>
           </Content>
         </Layout>
@@ -155,7 +165,7 @@ if(!props.isAdmin) {
              <div className="site-layout-background" style={{ padding: 24, minHeight: 200, justifyContent:"space-between", flexWrap: "wrap" , display:'flex' }}>
                
              <SuperAdmin Idquizzes = {props.IdQuizzToValidate} Quizzes = {props.QuizToValidate} Books = {props.AllBooks}/>
-                
+              
              </div>
            </Content>
          </Layout>
@@ -175,8 +185,10 @@ const mapStateToProps = state => {
     isAdmin : state.isAdmin,
     Points : state.Points,
     FirstName : state.FirstName,
+    LastName: state.LastName,
     QuizToValidate: state.QuizToValidate,
-    IdQuizzToValidate: state.IdQuizzToValidate
+    IdQuizzToValidate: state.IdQuizzToValidate,
+    OkQuiz: state.OkQuiz
 
 
   }
@@ -191,7 +203,7 @@ return {
   onFetchPoints: (currentUser) => dispatch(BooksActions.FetchPoints(currentUser)),
   onFetchFirstLast: (currentUser) => dispatch(BooksActions.FetchFirstLast(currentUser)),
   onFetchQuizListing: () => dispatch(BooksActions.FetchQuizListing()),
-  
+  onFetchOkQuiz: (currentUser) => dispatch(BooksActions.FetchOkQuiz(currentUser))
 
 }
 }

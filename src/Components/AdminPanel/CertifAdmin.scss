@@ -1,0 +1,129 @@
+
+
+.title{
+    font-size:100%;
+    color:#0E4573;
+    font-weight: bold;
+    position: absolute;
+    top:78%;
+    left:40%;
+
+}
+
+
+.success{
+    margin:5%;
+    color:White;
+
+}
+.successtxt{
+    font-size:80%;
+    font-weight:bold;
+    position: center;
+}
+
+@media screen and (min-width: 1000px) {
+    .certif{
+        font-family: "Jonathan";
+        font-size:350%;
+        padding:5px
+        
+    }
+
+    .lastfirst{
+        display: flex;
+        position: absolute;
+        top:45%;
+        left:35%;
+    }
+    .title{
+        font-size:70%;
+        color:#0E4573;
+        font-weight: bold;
+        position: absolute;
+        top:74%;
+        left:40%;
+        right: 30%
+    
+    }
+    .author{
+        font-size:90%;
+        color:#0E4680;
+        font-weight: bold;
+        position: absolute;
+        top:85%;
+        left:45%;
+        right: 20%;
+    
+    }
+    .imgcertif {
+      max-width: 50%;
+      height:auto;
+      background-color: white;
+      margin-left: 20%;
+      box-shadow: 4px 6px 5px -2px rgba(0,0,0,0.75);
+      margin-top: 3%;
+      margin-bottom: 3%;
+    }
+  }
+  
+
+  .img-wrap {
+    background: black;
+    display: inline-block;
+    line-height: 0;
+}
+    .img-wrap > img {
+        opacity: 0.8;
+    }
+
+    @media screen and (max-width: 640px) {
+        .checkbutton {
+         margin-left:20%;
+         margin-top:5%;
+        }
+        .certif{
+            font-family: "Jonathan";
+            font-size:170%;
+            padding:5px
+            
+        }
+
+
+        .lastfirst{
+            display: flex;
+            position: absolute;
+            top:45%;
+            left:20%;
+        }
+        .imgcertif {
+            max-width: 95%;
+            height:auto;
+            background-color: white;
+            margin-left: 3%;
+            margin-right: 3%;
+            box-shadow: 4px 6px 5px -2px rgba(0,0,0,0.75);
+            margin-top: 3%;
+            margin-bottom: 3%;
+          }
+          .title{
+            font-size:30%;
+            color:#0E4573;
+            font-weight: bold;
+            position: absolute;
+            top:74%;
+            left:30%;
+            right:20%;
+        
+        }
+        .author{
+            font-size:40%;
+            color:#0E4573;
+            font-weight: bold;
+            position: absolute;
+            top:85%;
+            left:50%;
+        
+        }
+        
+      }

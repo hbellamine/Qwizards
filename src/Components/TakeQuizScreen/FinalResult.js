@@ -4,6 +4,7 @@ import firebase from '../../base'
 import {AuthContext} from "../../Auth";
 import './Css/TakeQuizComponent.scss'
 import {Button} from 'react-bootstrap'
+import Certif from '../../Containers/CertifCont/Certif'
 
 
 const FinalResult = props => {
@@ -91,19 +92,8 @@ today = dd + '/' + mm + '/' + yyyy;
             
             </Card>
 
-            <Card className="bg-white text-black">
-            <Card.Img className="imgcertif" src="https://firebasestorage.googleapis.com/v0/b/qwizards-5b134.appspot.com/o/Certif.png?alt=media&token=52d8ae8a-4a7d-42e3-b426-80c89ad421f2" alt="Card image" />
-                <Card.ImgOverlay>
-                    <div className="lastfirst">
-                    <Card.Title className="certif">{capitalize(FirstName)} </Card.Title>
-                    <Card.Title className="certif">{capitalize(LastName)} </Card.Title>
-                    </div>
-             <div style = {{maxWidth:'150px'}}>
-                    <Card.Title className="title">{props.Book.Title} by </Card.Title>
-                    <Card.Title className="author">{props.Book.author} </Card.Title>
-             </div>
-                </Card.ImgOverlay>
-            </Card>
+            <Certif FirstName = {FirstName} LastName = {LastName} title = {props.Book.Title} author = {props.Book.author} />
+
             
 
             {nowrong && <h1 style={{textAlign:"center"}}>Wrong Answers : </h1> }

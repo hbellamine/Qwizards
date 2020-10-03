@@ -27,6 +27,15 @@ const NavBar = props => {
           )
     }
 
+    const adminpanel =()=>{
+
+        props.history.push(
+            {
+             pathname: '/adminpanel',
+            }
+          )
+    }
+
     return(
 
         <div className="Navbar">
@@ -36,7 +45,7 @@ const NavBar = props => {
                                     <Navbar.Collapse id="basic-navbar-nav">
                                     <Nav className="mr-auto">
                                         <Nav.Link onClick={home}>Home</Nav.Link>
-                                        <Nav.Link href="/adminpanel">My Dashboard</Nav.Link>
+                                        <Nav.Link onClick={adminpanel}>My Dashboard</Nav.Link>
                                         {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                                         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                                         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

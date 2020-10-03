@@ -53,7 +53,7 @@ const ToValidateCard = props => {
    }
         const classes = useStyles();
 
-        console.log(props.Book)
+    
 
        
             

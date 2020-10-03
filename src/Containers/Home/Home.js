@@ -16,13 +16,13 @@ const Home = props => {
     
 
     useEffect(()=> {
-        if(props.Fetchedok === false ) {
-            props.onFetchBooks(); }
+        
+            props.onFetchBooks(); 
 
             props.onNewRender(props.AllBooks)
 
               
-    },[props.Fetchedok])
+    },[])
 
     
     

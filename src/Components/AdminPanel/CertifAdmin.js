@@ -1,9 +1,9 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
-import '../../Components/TakeQuizScreen/Css/TakeQuizComponent.scss'
+import './CertifAdmin.scss'
 
 
-const Certif = props => {
+const CertifAdmin = props => {
     const capitalize = (s) => {
         if (typeof s !== 'string') return ''
         return s.charAt(0).toUpperCase() + s.slice(1)
@@ -28,4 +28,4 @@ const Certif = props => {
 
 }
 
-export default Certif
+export default CertifAdmin

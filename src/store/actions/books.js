@@ -19,7 +19,7 @@ export const FetchedOk = () => {
 export const setBooks = (books) => {
      return {
          type: actionTypes.SET_BOOKS,
-         books: Object.values((books.docs.map(doc => doc.data())))
+         books: books
      }
 }
 
@@ -41,7 +41,7 @@ export const FetchBooks = () => {
     return async dispatch => {
         const db = firebase.firestore()
         const bookslisting=  await db.collection("bookslist").get()        
-        dispatch(setBooks(bookslisting))
+        dispatch(setBooks(Object.values((bookslisting.docs.map(doc => doc.data())))))
         dispatch(FilteredBooks(Object.values((bookslisting.docs.map(doc => doc.data())))))
         const quizlisting= await db.collection("quiz").get() 
         dispatch(setIdquizzes((quizlisting.docs.map(doc => doc.id))))
@@ -88,14 +88,16 @@ export const FetchFirstLast = (currentUser) => {
     return async dispatch => {
         const db = firebase.firestore()
         const firstlast= await db.collection("users").doc(currentUser.uid).collection("firstlast").doc("firstlast").get()
-        dispatch(FirstLast(firstlast.data()["FirstName"]))
+        dispatch(FirstLast(firstlast.data()["FirstName"],firstlast.data()["LastName"]))
+
 
     }
 }
-export const FirstLast = (firstlast) => {
+export const FirstLast = (firstlast,lastname) => {
     return {
         type: actionTypes.SET_FIRSTLAST,
-        FirstLast : firstlast
+        FirstLast : firstlast,
+        LastName:lastname
     }
 
 }
@@ -123,4 +125,22 @@ export const IdQuizz = (idQuizz) => {
         IdQuizzToValidate : idQuizz
     }
 
+}
+
+export const FetchOkQuiz =(currentUser) => {
+    return async dispatch =>  {
+        const db= firebase.firestore ()
+        const okquiz = await db.collection("users").doc(currentUser.uid).collection("quizes").get()
+        dispatch(OkQuiz(okquiz.docs.map(doc => doc.data())))
+    }
+}
+
+export const OkQuiz = (okquiz) => {
+    return {
+
+        type: actionTypes.SET_USEROKQUIZ,
+        OkQuiz : okquiz
+
+
+    }
 }

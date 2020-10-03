@@ -3,7 +3,7 @@ import firebase from '../../../src/base'
 
 const initialState = {
 
-    AllBooks: null,
+    AllBooks: [],
     FilteredBooks : null,
     Quizzes : null,
     IdQuizzes : null,
@@ -11,9 +11,10 @@ const initialState = {
     isAdmin : false,
     Points : null,
     FirstName: null, 
+    LastName: null,
     QuizToValidate : null,
     IdQuizzToValidate: [],
-
+    OkQuiz : [],
 
 
 }
@@ -26,6 +27,7 @@ const reducer = (state = initialState, action) => {
             ...state,
             AllBooks: action.books
          }
+
          case actionsTypes.SET_QUIZZES : 
          return {
              ...state,
@@ -71,7 +73,8 @@ const reducer = (state = initialState, action) => {
          case actionsTypes.SET_FIRSTLAST: 
          return {
              ...state,
-             FirstName: action.FirstLast
+             FirstName: action.FirstLast,
+             LastName: action.LastName
          }
 
          case actionsTypes.SET_QUIZTOVALIDATE: 
@@ -85,6 +88,13 @@ const reducer = (state = initialState, action) => {
              ...state,
              IdQuizzToValidate: action.IdQuizzToValidate
          }
+
+         case actionsTypes.SET_USEROKQUIZ: 
+         return {
+             ...state,
+             OkQuiz: action.OkQuiz
+         }
+
 
          default : 
          return state; 
