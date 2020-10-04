@@ -63,7 +63,7 @@ today = dd + '/' + mm + '/' + yyyy;
     const savecertif =() => {
         htmlToImage.toPng(document.getElementById('capture'))
         .then(function (dataUrl) {
-          download(dataUrl, 'my-node.png');
+          download(dataUrl, 'Certification');
         });
     }
 
@@ -113,8 +113,9 @@ today = dd + '/' + mm + '/' + yyyy;
             <div id = "capture">
             <Certif FirstName = {FirstName} LastName = {LastName} title = {props.Book.Title} author = {props.Book.author} />
             </div>
-            <Button variant="primary" onClick={savecertif}> Savecertif </Button>
-            
+            <div style={{marginLeft:"30%"}}>
+                <Button variant="primary" onClick={savecertif}> Save Certification </Button>
+            </div>
 
             {nowrong && <h1 style={{textAlign:"center"}}>Wrong Answers : </h1> }
             <div style={{display:"flex", flexWrap:"wrap",justifyContent:'space-around',margin:"5%"}}>

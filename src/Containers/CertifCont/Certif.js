@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 import '../../Components/TakeQuizScreen/Css/TakeQuizComponent.scss'
-
+import imagecertif from './images/Imagecertif.png'
 
 const Certif = props => {
     const capitalize = (s) => {
@@ -11,7 +11,7 @@ const Certif = props => {
 
     return(
         <Card className="bg-white text-black">
-        <Card.Img className="imgcertif" src="https://firebasestorage.googleapis.com/v0/b/qwizards-5b134.appspot.com/o/Certif.png?alt=media&token=52d8ae8a-4a7d-42e3-b426-80c89ad421f2" alt="Card image" />
+        <Card.Img className="imgcertif" src={imagecertif} alt="Card image" />
             <Card.ImgOverlay>
                 <div className="lastfirstbook">
                 <Card.Title className="certifbook">{capitalize(props.FirstName)} </Card.Title>
