@@ -6,6 +6,8 @@ import './Css/TakeQuizComponent.scss'
 import {Button} from 'react-bootstrap'
 import Certif from '../../Containers/CertifCont/Certif'
 import {withRouter} from 'react-router-dom'
+import htmlToImage from 'html-to-image';
+import download from "downloadjs"
 
 const FinalResult = props => {
 
@@ -58,6 +60,13 @@ today = dd + '/' + mm + '/' + yyyy;
           )
     }
 
+    const savecertif =() => {
+        htmlToImage.toPng(document.getElementById('capture'))
+        .then(function (dataUrl) {
+          download(dataUrl, 'my-node.png');
+        });
+    }
+
 
     db.collection("users").doc(currentUser.uid).collection("quizes").doc(props.Book.id).set({
         booktitle : props.Book.Title,
@@ -101,9 +110,10 @@ today = dd + '/' + mm + '/' + yyyy;
             </Card.ImgOverlay>
             
             </Card>
-
+            <div id = "capture">
             <Certif FirstName = {FirstName} LastName = {LastName} title = {props.Book.Title} author = {props.Book.author} />
-
+            </div>
+            <Button variant="primary" onClick={savecertif}> Savecertif </Button>
             
 
             {nowrong && <h1 style={{textAlign:"center"}}>Wrong Answers : </h1> }
@@ -141,7 +151,7 @@ today = dd + '/' + mm + '/' + yyyy;
 
                 <div>
                     <Card className="success">
-                    <div class="img-wrap">
+                    <div className="img-wrap">
                         <Card.Img src="https://image.freepik.com/free-photo/young-man-holding-hands-his-head-white-t-shirt-looking-sorry-front-view_176474-10206.jpg" alt="Card image" />
                     </div>
                     <Card.ImgOverlay>
