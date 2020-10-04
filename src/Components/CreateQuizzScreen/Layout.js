@@ -256,7 +256,9 @@ if (QuizzUploaded === true) {
         <SummaryModal summary={props.summary} />
         
           <Paragraph handleNext={handleClick} handleSubmit={handleSubmit}   q='Question twelve'/>
-                  
+          
+          <Button onClick = {handleSubmit} variant="contained" size='small' color='primary'>Submit</Button>
+        
       </TabPanel>
     </div>
   );

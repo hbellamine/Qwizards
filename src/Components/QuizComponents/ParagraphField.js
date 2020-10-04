@@ -4,10 +4,10 @@ import Button from '@material-ui/core/Button'
 
 const Paragraph = props => {
   const [Question,SetQuestion ] = useState()
-  const [Answer1,SetAnswer1 ] = useState()
-  const [Answer2,SetAnswer2 ] = useState()
-  const [Answer3,SetAnswer3 ] = useState()
-  const [Answer4,SetAnswer4 ] = useState()
+  const [Answer1,SetAnswer1 ] = useState(" ")
+  const [Answer2,SetAnswer2 ] = useState(" ")
+  const [Answer3,SetAnswer3 ] = useState(" ")
+  const [Answer4,SetAnswer4 ] = useState(" ")
   const [RightAnswer,SetRightAnswer] = useState()
 
 
