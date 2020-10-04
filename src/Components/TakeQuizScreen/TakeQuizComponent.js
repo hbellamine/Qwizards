@@ -10,6 +10,9 @@ const TakeQuizComponent = props => {
     const [RightAnswers, SetRightAnswers] = useState([])
     const [WrongAnswers, SetWrongAnswers] = useState([])
     const [WrongUserAnswers,SetWrongUserAnswers]=useState([])
+    const [answer3,Setanswer3] =useState()
+    const [answer4,Setanswer4] =useState()
+
 
 
 
@@ -41,7 +44,27 @@ const TakeQuizComponent = props => {
     }
     
  
+    const answer3f =() => {
+        if(props.quiz[Counter].answer3 === " " ) {
+            console.log(props.quiz[Counter].answer3)
+           return (<p></p>)
 
+        } else {
+            return (<p onClick = {onClickHandle} className ='option'>{props.quiz[Counter].answer3}</p>)
+        }
+    }
+
+
+    const answer4f =() => {
+
+        if(props.quiz[Counter].answer4 === " " ) {
+
+           return (<p></p>)
+
+        } else {
+            return (<p onClick = {onClickHandle} className ='option'>{props.quiz[Counter].answer4}</p>)
+        }
+    }
 
     if (Last) { return(
          <Fragment>
@@ -61,8 +84,8 @@ const TakeQuizComponent = props => {
                     <p onClick = {onClickHandle} className="option">{props.quiz[Counter].answer2}</p>
                 </div>
                 <div className="options-container">
-                <p onClick = {onClickHandle} className ='option'>{props.quiz[Counter].answer3}</p>
-                    <p onClick = {onClickHandle} className="option">{props.quiz[Counter].answer4}</p>
+                    {answer3f()}
+                    {answer4f()}
                 </div>
  
             </div>
