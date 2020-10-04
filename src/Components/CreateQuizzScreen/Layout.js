@@ -253,11 +253,10 @@ if (QuizzUploaded === true) {
       </TabPanel>
       <TabPanel value={value} index={11}>
       {bannertop}
+        <SummaryModal summary={props.summary} />
         
           <Paragraph handleNext={handleClick} handleSubmit={handleSubmit}   q='Question twelve'/>
-          
-          <Button onClick = {handleSubmit} variant="contained" size='small' color='primary'>Submit</Button>
-        
+                  
       </TabPanel>
     </div>
   );
