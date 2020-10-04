@@ -90,22 +90,22 @@
     background-color: darken(red,10%);
 }
 
-.certif{
+.certifbook{
     font-family: "Jonathan";
-    font-size:350%;
+    font-size:300%;
     padding:5px
     
 }
 
-.lastfirst{
+.lastfirstbook{
     display: flex;
     position: absolute;
     top:45%;
     left:40%;
 }
 
-.title{
-    font-size:100%;
+.titlebook{
+    font-size:200%;
     color:#0E4573;
     font-weight: bold;
     position: absolute;
@@ -114,7 +114,7 @@
 
 }
 
-.author{
+.authorbook{
     font-size:110%;
     color:#0E4573;
     font-weight: bold;
@@ -171,17 +171,18 @@
             margin-top: 3%;
             margin-bottom: 3%;
           }
-          .title{
-            font-size:50%;
+          .titlebook{
+            font-size:80%;
             color:#0E4573;
             font-weight: bold;
             position: absolute;
-            top:76%;
+            top:74%;
             left:20%;
+            right:10%
         
         }
-        .author{
-            font-size:50%;
+        .authorbook{
+            font-size:90%;
             color:#0E4573;
             font-weight: bold;
             position: absolute;
