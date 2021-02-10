@@ -1,6 +1,27 @@
 .Container {
-margin: 20px;
-display: flex;
-justify-content: space-around;
-flex-wrap: wrap;
-  }
+  margin: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  -webkit-box-shadow: 7px 6px 31px 10px rgba(0, 0, 0, 0.44);
+  box-shadow: 7px 6px 31px 10px rgba(0, 0, 0, 0.44);
+  margin : 50px 30px 50px 30px;
+  padding: 50px 1px 1px 7px;
+}
+
+
+.titleH2 {
+  position: relative;
+  margin-top: 50px;
+  text-align: center;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+  word-spacing: 0.8px;
+  color: #ffb3eb;
+  font-weight: 700;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+}
