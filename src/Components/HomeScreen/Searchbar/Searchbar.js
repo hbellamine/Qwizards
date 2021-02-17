@@ -20,6 +20,10 @@ const Searchbar = (props) => {
 
   const ChangeHandler = (event) => {
     //event.preventDefault();
+    props.setHide(true)
+    if (event.target.value===""){
+      props.setHide(false)
+    }
 
     let listedbooks = props.books.filter((book) =>
       book.Title.toLowerCase().includes(event.target.value.toLowerCase())

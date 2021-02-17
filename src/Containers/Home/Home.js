@@ -11,6 +11,7 @@ import quotes from "../../Components/HomeScreen/Quotes/Quotes";
 
 const Home = (props) => {
   const [rand, setrand] = useState(Math.floor(Math.random() * (2999 + 1)));
+  const [hide, setHide] = useState(false)
 
   const quote = () => {
     return quotes[rand]["Quote"];
@@ -46,9 +47,9 @@ const Home = (props) => {
     <div>
       <NavBar />
       {props.AllBooks && <Banner title={bannertext} quote={quotebanner} />}
-      {props.AllBooks && <Searchbar books={props.AllBooks} />}
+      {props.AllBooks && <Searchbar books={props.AllBooks} setHide={setHide} />}
       
-      {props.FilteredBooks && props.IdQuizzes && props.Quizzes && <div className="latesteQuizes">
+      {props.FilteredBooks && props.IdQuizzes && props.Quizzes && !hide && <div className="latesteQuizes">
         <h2 className="titleH2">Latest quizzes available</h2>
         <ShowList
           Quizzes={props.Quizzes}
