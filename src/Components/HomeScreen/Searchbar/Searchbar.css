@@ -1,4 +1,16 @@
 .Searchbar {
-  display: flex;
-  justify-content: center;
+  position: relative;
+  align-items: center;
+  margin: 0 auto;
+  width:300px;
+  background-color: white;
+  margin-top: -3%;
+  text-align: center;
+  height:auto;
+  border-radius: 20px;
+  -webkit-box-shadow: -6px 9px 15px 4px rgba(0,0,0,0.13); 
+box-shadow: -6px 9px 15px 4px rgba(0,0,0,0.13);
+}
+#standard-basic{
+  position: relative;
 }

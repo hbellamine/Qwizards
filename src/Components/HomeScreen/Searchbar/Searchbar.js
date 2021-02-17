@@ -33,16 +33,10 @@ const Searchbar = (props) => {
         <form className={classes.root} noValidate autoComplete="off">
           <TextField
             onChange={ChangeHandler}
+            label="🔍  Book"
             id="standard-basic"
-            label="Book"
           />
         </form>
-      </div>
-
-      <div style={{ marginTop: 20 }}>
-        <Button variant="contained" color="primary">
-          Search
-        </Button>
       </div>
     </div>
   );
