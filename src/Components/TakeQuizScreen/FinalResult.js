@@ -6,7 +6,7 @@ import "./Css/TakeQuizComponent.scss";
 import { Button } from "react-bootstrap";
 import Certif from "../../Containers/CertifCont/Certif";
 import { withRouter } from "react-router-dom";
-import htmlToImage from "html-to-image";
+//import htmlToImage from "html-to-image";
 import download from "downloadjs";
 
 const FinalResult = (props) => {
@@ -57,13 +57,13 @@ const FinalResult = (props) => {
     });
   };
 
-  const savecertif = () => {
-    htmlToImage
-      .toPng(document.getElementById("capture"))
-      .then(function (dataUrl) {
-        download(dataUrl, "Certification");
-      });
-  };
+  // const savecertif = () => {
+  //   htmlToImage
+  //     .toPng(document.getElementById("capture"))
+  //     .then(function (dataUrl) {
+  //       download(dataUrl, "Certification");
+  //     });
+  // };
 
   db.collection("users")
     .doc(currentUser.uid)
@@ -139,12 +139,12 @@ const FinalResult = (props) => {
             author={props.Book.author}
           />
         </div>
-        <div style={{ marginLeft: "30%" }}>
+        {/* <div style={{ marginLeft: "30%" }}>
           <Button variant="primary" onClick={savecertif}>
             {" "}
             Save Certification{" "}
           </Button>
-        </div>
+        </div> */}
 
         {nowrong && <h1 style={{ textAlign: "center" }}>Wrong Answers : </h1>}
         <div
